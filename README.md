@@ -1,7 +1,6 @@
 # Project 4: Around The U.S.
 
-**description**  
-This is my first responsive webpage!
+
 
 **technologies & techniques**
 
