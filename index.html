@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/pages/index.css">
+    <title>Around the U.S.</title>
+</head>
+
+<body class="page">
+    <header>
+        <img src="img/logo/logo.svg" class="logo" alt="logo of Around the U.S.">
+        <hr class="hr">
+    </header>
+
+    <main>
+        <section class="profile">
+            <img src="img/avatars/avater-icon.png" alt="Profile Avater" class="profile__avatar">
+            <div class="profile__info">
+                <h1 class="profile__name">Jacques Cousteau</h1>
+                <button class="btn-edit profile__edit-info"></button>
+                <h2 class="profile__title">Explorer</h2>
+            </div>
+            <button class="profile__add btn-add"></button>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <img class="card__img" src="img/cards-places/card-1.png" alt="Lago di Braies place">
+                <div class="card__bottom">
+                    <h3 class="card__name">Lago di Braies</h3>
+                    <button class="btn-like card__like"></button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card__img" src="img/cards-places/card-2.png" alt="Lake Louise place">
+                <div class="card__bottom">
+                    <h3 class="card__name">Lake Louise</h3>
+                    <button class="btn-like card__like"></button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card__img" src="img/cards-places/card-3.png" alt="Latemar place">
+                <div class="card__bottom">
+                    <h3 class="card__name">Latemar</h3>
+                    <button class="btn-like card__like"></button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card__img" src="img/cards-places/card-4.png" alt="Bald Mountains place">
+                <div class="card__bottom">
+                    <h3 class="card__name">Bald Mountains</h3>
+                    <button class="btn-like card__like"></button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card__img" src="img/cards-places/card-5.png" alt="Vanoise National place">
+                <div class="card__bottom">
+                    <h3 class="card__name">Vanoise National</h3>
+                    <button class="btn-like card__like"></button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card__img" src="img/cards-places/card-6.png" alt="Yosemite Valley place">
+                <div class="card__bottom">
+                    <h3 class="card__name">Yosemite Valley</h3>
+                    <button class="btn-like card__like"></button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 
+ .overlay can be used for another forms, so I create ID for js
+-->
+        <div id="frmProfilePopup" class="overlay">
+            <div class="popup-form">
+                <div class="form-profile">
+                    <button class="btn-close form-profile__btn-close"></button>
+                    <p class="form-profile__lbl-title">Edit profile</p>
+                    <input class="textbox form-profile__txb-name" type="text" name="profileName"
+                        value="Jacques Cousteau">
+                    <input class="textbox form-profile__txb-title" type="text" name="profiletTitle" value="Explorer">
+                    <button class="btn-submit form-profile__btn-submit" type="submit">Save</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </main>
+
+    <footer>
+        <p class="footer">© 2021 Around The U.S.</p>
+    </footer>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

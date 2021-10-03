@@ -1,0 +1,68 @@
+/* vendor */
+@import url(../../css/vendor/normalize.css);
+/* Fonts */
+@import url(../../fonts/inter/inter.css);
+
+/*
+----------------------components----------------------
+ */
+/*------Buttons------/*
+/* button edit */
+@import url(../../css/blocks/btn-edit/btn-edit.css);
+
+/* button add  */
+@import url(../../css/blocks/btn-add/btn-add.css);
+
+/* button like  */
+@import url(../../css/blocks/btn-like/btn-like.css);
+@import url(../../css/blocks/btn-like/_state/btn-like_state_active.css);
+
+/* button close  */
+@import url(../../css/blocks/btn-close/btn-close.css);
+
+/* button sumbit  */
+@import url(../../css/blocks/btn-submit/btn-submit.css);
+
+/* button cards */
+@import url(../../css/blocks/cards/cards.css);
+
+/*------Textbox------*/
+@import url(../../css/blocks/textbox/textbox.css);
+/* hr */
+@import url(../../css/blocks/hr/hr.css);
+/*---------------------- end components----------------------*/
+
+/* page */
+@import url(../../css/blocks/page/page.css);
+/* logo */
+@import url(../../css/blocks/logo/logo.css);
+/* profile */
+@import url(../../css/blocks/profile/profile.css);
+@import url(../../css/blocks/profile/__info/profile__info.css);
+@import url(../../css/blocks/profile/__name/profile__name.css);
+@import url(../../css/blocks/profile/__avatar/profile__avatar.css);
+@import url(../../css/blocks/profile/__title/profile__title.css);
+@import url(../../css/blocks/profile/__edit-info/profile__edit-info.css);
+@import url(../../css/blocks/profile/__add/profile__add.css);
+@import url(../../css/blocks/form-profile/__btn-close/form-profile__btn-close.css);
+/* card */
+@import url(../../css/blocks/card/card.css);
+@import url(../../css/blocks/card/card__bottom/card__bottom.css);
+@import url(../../css/blocks/card/card__img/card__img.css);
+@import url(../../css/blocks/card/card__like/card__like.css);
+@import url(../../css/blocks/card/card__name/card__name.css);
+/* popup-form */
+@import url(../../css/blocks/popup-form/popup-form.css);
+/* form-profile */
+@import url(../../css/blocks/form-profile/form-profile.css);
+@import url(../../css/blocks/form-profile/__btn-close/form-profile__btn-close.css);
+@import url(../../css/blocks/form-profile/__btn-submit/form-profile__btn-submit.css);
+@import url(../../css/blocks/form-profile/__lbl-title/form-profile__title.css);
+@import url(../../css/blocks/form-profile/__txb-name/form-profile__txb-name.css);
+@import url(../../css/blocks/form-profile/__txb-title/form-profile__txb-title.css);
+/* overlay */
+@import url(../../css/blocks/overlay/overlay.css);
+@import url(../../css/blocks/overlay/_visibility/overlay_visibility_visible.css);
+
+/* footer */
+@import url(../../css/blocks/footer/footer.css);

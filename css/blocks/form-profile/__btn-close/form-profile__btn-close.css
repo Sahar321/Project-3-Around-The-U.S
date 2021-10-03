@@ -1,0 +1,29 @@
+.form-profile__btn-close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  margin-top: -40px;
+  margin-right: -40px;
+
+  transform: rotate(-45deg);
+  transition: width 0.2s, height 0.2s, margin-top 0.2s, margin-right 0.2s; /*Not part of the requirements */
+}
+@media screen and (max-width: 585px) {
+  .btn-close {
+    margin-right: 0;
+    top: -40px;
+    transition: all 0.2s; /* Not part of the requirements */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .btn-close {
+    width: 26px;
+    height: 26px;
+    top: -26px;
+    right: 0;
+    margin-top: -13px;
+    transition: all 0.2s; /* Not part of the requirements */
+  }
+}

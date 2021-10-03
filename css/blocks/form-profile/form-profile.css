@@ -1,0 +1,23 @@
+.form-profile {
+  display: grid;
+  flex-direction: column;
+  height: 330px;
+  max-width: 430px;
+  min-width: 282px;
+  width: 100%;
+  padding-bottom: 36px;
+  grid-template-columns: minmax(36px, 1fr) 10fr minmax(36px, 1fr);
+  grid-template-areas:
+    ". frmTitle ."
+    ". txtName ."
+    ". txtTitle ."
+    ". btnSubmit .";
+}
+
+@media screen and (max-width: 585px) {
+  .form-profile {
+    grid-template-columns: minmax(22px, 1fr) 10fr minmax(22px, 1fr);
+    max-height: 322px;
+    padding-bottom: 25px;
+  }
+}
