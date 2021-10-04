@@ -1,6 +1,7 @@
 # Project 4: Around The U.S.
 
-
+**description**
+ A journey in the United States
 
 **technologies & techniques**
 
