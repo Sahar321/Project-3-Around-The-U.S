@@ -55,7 +55,7 @@ function FrmProfileSubmitHandler(e) {
     const lblProfileTitle = document.querySelector(".profile__title")
 //profileName profiletTitle frmProfileName
     const txbFrmName = document.querySelector("#frmProfileName")
-    const txbFrmTitle = document.querySelector(".frmProfileTitle")
+    const txbFrmTitle = document.querySelector("#frmProfileTitle")
 
     lblProfileName.textContent = txbFrmName.value
     lblProfileTitle.textContent = txbFrmTitle.value
