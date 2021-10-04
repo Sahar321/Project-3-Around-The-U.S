@@ -38,8 +38,8 @@ function profileEditHandler() {
     }
     const profileName = document.querySelector(".profile__name")
     const profileTitle = document.querySelector(".profile__title")
-    const FrmName = document.querySelector(".form-profile__txb-name")
-    const frmTitle = document.querySelector(".form-profile__txb-title")
+    const FrmName = document.querySelector("#frmProfileName")
+    const frmTitle = document.querySelector("frmProfileTitle")
     FrmName.setAttribute("value", profileName.textContent)
     frmTitle.setAttribute("value", profileTitle.textContent)
 }
@@ -53,9 +53,9 @@ function FrmProfileSubmitHandler(e) {
     e.preventDefault();
     const lblProfileName = document.querySelector(".profile__name")
     const lblProfileTitle = document.querySelector(".profile__title")
-
-    const txbFrmName = document.querySelector(".form-profile__txb-name")
-    const txbFrmTitle = document.querySelector(".form-profile__txb-title")
+//profileName profiletTitle frmProfileName
+    const txbFrmName = document.querySelector("#frmProfileName")
+    const txbFrmTitle = document.querySelector(".frmProfileTitle")
 
     lblProfileName.textContent = txbFrmName.value
     lblProfileTitle.textContent = txbFrmTitle.value
