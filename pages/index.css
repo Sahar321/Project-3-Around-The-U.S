@@ -60,8 +60,7 @@
 @import url(../blocks/form-profile/__btn-close/form-profile__btn-close.css);
 @import url(../blocks/form-profile/__btn-submit/form-profile__btn-submit.css);
 @import url(../blocks/form-profile/__lbl-title/form-profile__lbl-title.css);
-@import url(../blocks/form-profile/__txb-name/form-profile__txb-name.css);
-@import url(../blocks/form-profile/__txb-title/form-profile__txb-title.css);
+@import url(../blocks/form-profile/__txb/form-profile__txb.css);
 /* overlay */
 @import url(../blocks/overlay/overlay.css);
 
