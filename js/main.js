@@ -8,21 +8,21 @@ const frmProfile = document.querySelector("#frmProfile")
 const frmProfileClose = document.querySelector('.form-profile__btn-close')
 const frmProfileName = document.querySelector("#frmProfileName")
 const frmProfileTitle = document.querySelector("#frmProfileTitle")
-const frmProfilePopup = document.querySelector('#frmProfilePopup')
+const frmProfileOverlay = document.querySelector('#frmProfileOverlay')
 
 
 /// Event handlers
 
 // - Profile handlers
 function profileEditHandler() {
-    frmProfilePopup.classList.add("overlay_visible")
+    frmProfileOverlay.classList.add("overlay_visible")
     frmProfileName.setAttribute("value", profileName.textContent)
     frmProfileTitle.setAttribute("value", profileTitle.textContent)
 }
 
 // - From-Profile handlers
 function frmProfileCloseHandler() {
-    frmProfilePopup.classList.remove("overlay_visible")
+    frmProfileOverlay.classList.remove("overlay_visible")
 }
 
 function frmProfileSubmitHandler(e) {
