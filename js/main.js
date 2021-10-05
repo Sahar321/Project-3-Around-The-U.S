@@ -1,28 +1,24 @@
 /// Variables
-// - Profile
+
 const profileName = document.querySelector(".profile__name")
 const profileTitle = document.querySelector(".profile__title")
 const profileEdit = document.querySelector('.profile__edit-info')
-// - Form Profile
-const frmProfile = document.querySelector("#frmProfile")
-const frmProfileClose = document.querySelector('.form-profile__btn-close')
+
+const frmProfile = document.querySelector(".form-profile")
 const frmProfileName = document.querySelector("#frmProfileName")
 const frmProfileTitle = document.querySelector("#frmProfileTitle")
 const frmProfileOverlay = document.querySelector('#frmProfileOverlay')
+const frmProfileClose = document.querySelector('.popup-form__btn-close')
 
 
 /// Event handlers
-
-// - Profile handlers
 function profileEditHandler() {
+    frmProfileName.value = profileName.textContent
+    frmProfileTitle.value = profileTitle.textContent
     frmProfileOverlay.classList.add("overlay_visible")
-    frmProfileName.setAttribute("value", profileName.textContent)
-    frmProfileTitle.setAttribute("value", profileTitle.textContent)
 }
-
-// - From-Profile handlers
 function frmProfileCloseHandler() {
-    frmProfileOverlay.classList.remove("overlay_visible")
+    frmProfileOverlay.classList.remove("overlay_visible");
 }
 
 function frmProfileSubmitHandler(e) {
@@ -34,10 +30,7 @@ function frmProfileSubmitHandler(e) {
 
 /// Event Listeners
 
-// - Profile Events
 profileEdit.addEventListener("click", profileEditHandler);
-
-// - Form Profile Events
 frmProfileClose.addEventListener("click", frmProfileCloseHandler);
 frmProfile.addEventListener("submit", frmProfileSubmitHandler);
 

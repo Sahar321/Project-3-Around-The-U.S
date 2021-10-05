@@ -44,7 +44,6 @@
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__edit-info/profile__edit-info.css);
 @import url(../blocks/profile/__add/profile__add.css);
-@import url(../blocks/form-profile/__btn-close/form-profile__btn-close.css);
 /* flex-wrapper */
 @import url(../blocks/flex-wrapper/flex-wrapper.css);
 /* card */
@@ -55,9 +54,9 @@
 @import url(../blocks/card/__name/card__name.css);
 /* popup-form */
 @import url(../blocks/popup-form/popup-form.css);
+@import url(../blocks/popup-form/__btn-close/popup-form__btn-close.css);
 /* form-profile */
 @import url(../blocks/form-profile/form-profile.css);
-@import url(../blocks/form-profile/__btn-close/form-profile__btn-close.css);
 @import url(../blocks/form-profile/__btn-submit/form-profile__btn-submit.css);
 @import url(../blocks/form-profile/__lbl-title/form-profile__lbl-title.css);
 @import url(../blocks/form-profile/__txb/form-profile__txb.css);
