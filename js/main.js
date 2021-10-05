@@ -8,7 +8,7 @@ const frmProfile = document.querySelector(".form-profile")
 const frmProfileName = document.querySelector("#frmProfileName")
 const frmProfileTitle = document.querySelector("#frmProfileTitle")
 const frmProfileOverlay = document.querySelector('#frmProfileOverlay')
-const frmProfileClose = document.querySelector('.popup-form__btn-close')
+const frmProfileClose = document.querySelector('#frmProfileClose')
 
 
 /// Event handlers
