@@ -14,4 +14,4 @@
 
   **live demo**
 
-https://sahar321.github.io/web_project_4/index.html
+https://sahar321.github.io/web_project_4
