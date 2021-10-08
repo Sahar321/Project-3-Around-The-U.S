@@ -18,7 +18,7 @@
   padding-bottom: 37px;
 }
 
-@media screen and (max-width: 585px) {
+@media screen and (max-width: 600px) {
   .form-profile {
     grid-template-columns: minmax(22px, 1fr) 10fr minmax(22px, 1fr);
   }

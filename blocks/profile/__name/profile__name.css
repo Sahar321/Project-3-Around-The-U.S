@@ -14,13 +14,12 @@
   max-width: 373px;
 }
 
-@media screen and (max-width: 585px) {
+@media screen and (max-width: 600px) {
   .profile__name {
     max-width: 260px; /*in figma, the width is 196px,
      I make it until 260px - the max possible width before Breaking the layout*/
     font-size: 22px;
     line-height: 27px;
     text-align: center;
-    margin-top: 30px;
   }
 }
