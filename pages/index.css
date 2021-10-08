@@ -62,6 +62,7 @@
 @import url(../blocks/form-profile/__txb/form-profile__txb.css);
 /* overlay */
 @import url(../blocks/overlay/overlay.css);
+@import url(../blocks/overlay/_visible/overlay_visible.css);
 
 /* footer */
 @import url(../blocks/footer/footer.css);
