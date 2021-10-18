@@ -1,8 +1,8 @@
-# Project 4: Around The U.S.
+# Project 4: Around The U.S. (sprint 5)
 
 **description**
 
- A journey in the United States
+A journey in the United States
 
 **technologies & techniques**
 

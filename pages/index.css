@@ -22,7 +22,8 @@
 
 /* button sumbit  */
 @import url(../blocks/btn-submit/btn-submit.css);
-
+/* button sumbit  */
+@import url(../blocks/btn-delete/btn-delete.css);
 /* button cards */
 @import url(../blocks/cards/cards.css);
 
@@ -52,18 +53,19 @@
 @import url(../blocks/card/__img/card__img.css);
 @import url(../blocks/card/__like/card__like.css);
 @import url(../blocks/card/__name/card__name.css);
+@import url(../blocks/card/__delete-card/card__delete-card.css);
+@import url(../blocks/card/__upper/card__upper.css);
 /* popup-form */
 @import url(../blocks/popup-form/popup-form.css);
-@import url(../blocks/popup-form/__btn-close/popup-form__btn-close.css);
-/* form-profile */
-@import url(../blocks/form-profile/form-profile.css);
-@import url(../blocks/form-profile/__btn-submit/form-profile__btn-submit.css);
-@import url(../blocks/form-profile/__lbl-title/form-profile__lbl-title.css);
-@import url(../blocks/form-profile/__txb/form-profile__txb.css);
+@import url(../blocks/popup-form/__btn-submit/popup-form__btn-submit.css);
+@import url(../blocks/popup-form/__lbl-title/popup-form__lbl-title.css);
+@import url(../blocks/popup-form/__txb/popup-form__txb.css);
 /* overlay */
 @import url(../blocks/overlay/overlay.css);
 @import url(../blocks/overlay/_visible/overlay_visible.css);
-
+@import url(../blocks/overlay/__btn-close/overlay__btn-close.css);
+@import url(../blocks/overlay/__img/overlay__img.css);
+@import url(../blocks/overlay/__text/overlay__text.css);
 /* footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);

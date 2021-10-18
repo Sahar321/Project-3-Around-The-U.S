@@ -12,6 +12,7 @@
   font-size: 14px;
   line-height: 17px;
   box-sizing: border-box;
+  padding-bottom: 13px;
 }
 
 .textbox:focus {
