@@ -4,14 +4,15 @@
   z-index: 99;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
   justify-content: center;
   align-items: center;
   align-content: center;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
-  display: grid;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  pointer-events: none;
 }

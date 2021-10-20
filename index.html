@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Around the U.S.</title>
+ 
 </head>
 
 <body class="page">
+
+ 
     <header class="header">
         <img src="img/logo/logo.svg" class="logo" alt="logo of Around the U.S." />
     </header>
@@ -24,19 +27,18 @@
                 </div>
                 <p class="profile__title">Explorer</p>
                 <button aria-label="Add an item" class="profile__add btn-add" type="button"></button>
-
             </div>
         </section>
 
-        <div id="overlayImage" class="overlay">
-            <button class="btn-close overlay__btn-close" aria-label="Close" type="button"></button>
-            <img class="overlay__img" >
-            <p class="overlay__text"></p>
-        </div>
         <section class="cards">
 
         </section>
 
+        <div id="overlayImage" class="overlay">
+            <button class="btn-close overlay__btn-close" aria-label="Close" type="button"></button>
+            <img class="overlay__img">
+            <p class="overlay__text"></p>
+        </div>
         <div id="frmProfile" class="overlay">
             <button class="btn-close overlay__btn-close" aria-label="Close" type="button"></button>
             <form name="frmProfile" class="popup-form">
@@ -46,7 +48,6 @@
                 <button aria-label="Save" class="btn-submit popup-form__btn-submit" type="submit">Save</button>
             </form>
         </div>
-
         <div id="frmCard" class="overlay">
             <button class="btn-close overlay__btn-close" aria-label="Close" type="button"></button>
             <form name="frmCard" class="popup-form">
@@ -57,22 +58,13 @@
 
             </form>
         </div>
+
     </main>
-
-
     <footer class="footer">
         <p class="footer__copyright">© 2021 Around The U.S.</p>
     </footer>
 
-
-    <!--
-
-Templates
-
-    -->
-
-
-
+    <!--    Templates   -->
     <template id="card">
         <article class="card">
             <div class="card__upper">
@@ -86,22 +78,12 @@ Templates
 
         </article>
     </template>
+
+
+
+    <!--    scripts   -->
     <script src="./js/main.js"></script>
+
 </body>
 
 </html>
-
-
-<!--
-            <div id="frmProfileOverlay" class="overlay">
-            <div class="popup-form">
-                <button id="frmProfileClose" class="btn-close overlay__btn-close" aria-label="Close" type="button"></button>
-                <form name="popup-form" class="popup-form">
-                    <h2 class="popup-form__lbl-title">Edit profile</h2>
-                    <input class="textbox popup-form__txb" type="text" name="profileName" id="frmProfileName" value="Jacques Cousteau" />
-                    <input class="textbox popup-form__txb" type="text" name="profileTitle" id="frmProfileTitle" value="Explorer" />
-                    <button aria-label="Save" class="btn-submit popup-form__btn-submit" type="submit">Save</button>
-                </form>
-            </div>
-        </div>
--->

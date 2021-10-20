@@ -16,9 +16,11 @@ const frmCardUrl = document.querySelector("[name='CardURL']")
 const frmCardTitle = document.querySelector("[name='CardTitle']")
 const frmCardClose = document.querySelector('#frmCard *.btn-close')
 
+const cardTemplate = document.querySelector("#card").content;
+const cardsList = document.querySelector(".cards")
 
-/// Event handlers
-const Main = function () {
+init();
+function init() {
     const initialCards = [
         {
             name: "Yosemite Valley",
@@ -46,13 +48,17 @@ const Main = function () {
             link: "https://code.s3.yandex.net/web-code/lago.jpg"
         }
     ];
-    initialCards.forEach(elm => InsertCard(elm.name, elm.link));
+    initialCards.forEach(elm => insertCard(elm));
 
-    overlayClose.forEach(elm => elm.addEventListener("click", overlayCloseHandler))
-}();
+    overlayClose.forEach(elm => elm.addEventListener("click", closeModalWindow))
+}
 
+function openModalWindow(modalWindow) {
 
-function overlayCloseHandler(e) {
+    modalWindow.classList.add("overlay_visible");
+}
+
+function closeModalWindow(e) {
     e.target.closest(".overlay").classList.remove("overlay_visible");
 }
 
@@ -60,7 +66,7 @@ function overlayCloseHandler(e) {
 function profileEditHandler() {
     frmProfileName.value = profileName.textContent
     frmProfileTitle.value = profileTitle.textContent
-    frmProfile.classList.add("overlay_visible")
+    openModalWindow(frmProfile);
 }
 
 
@@ -68,22 +74,21 @@ function frmProfileSubmitHandler(e) {
     e.preventDefault();
     profileName.textContent = frmProfileName.value
     profileTitle.textContent = frmProfileTitle.value
-    overlayCloseHandler(e)
+    closeModalWindow(e)
 }
 
 // Card
-function InsertCard(name, link) {
-    const cardTamplte = document.querySelector("#card").content;
-    const cardsList = document.querySelector(".cards")
-    const card = cardTamplte.querySelector(".card").cloneNode(true);
+function insertCard(dataObj) {
+
+    const card = cardTemplate.querySelector(".card").cloneNode(true);
     const cardName = card.querySelector(".card__name")
     const cardImg = card.querySelector(".card__img")
     const cardLike = card.querySelector(".card__like")
     const cardDelete = card.querySelector(".card__delete-card")
 
-    cardName.textContent = name
-    cardImg.setAttribute("src", link)
-    cardImg.setAttribute("alt", name)
+    cardName.textContent = dataObj.name
+    cardImg.setAttribute("src", dataObj.link)
+    cardImg.setAttribute("alt", dataObj.name)
 
     cardLike.addEventListener("click", cardLikeHandler)
     cardDelete.addEventListener("click", cardDeleteHandler)
@@ -97,42 +102,39 @@ function cardLikeHandler(e) {
 function cardDeleteHandler(e) {
     e.target.closest(".card").remove();
 }
+
 function cardAddHandler() {
-    frmCardTitle.value = ""
-    frmCardUrl.value = ""
-    frmCard.classList.add("overlay_visible")
+    document.forms["frmCard"].reset();
+
+    openModalWindow(frmCard);
+
 }
 
 function frmCardSubmitHandler(e) {
     e.preventDefault();
-    InsertCard(frmCardTitle.value, frmCardUrl.value)
-    overlayCloseHandler(e)
+    const cardData = { name: frmCardTitle.value, link: frmCardUrl.value };
+    insertCard(cardData)
+    closeModalWindow(e)
 }
 function cardImgHandler(e) {
-    const txt = document.querySelector(".overlay__text")
-    const img = document.querySelector(".overlay__img")
-    const overlay = document.querySelector("#overlayImage")
+    const overlayImgContiner = document.querySelector("#overlayImage")
+    const overlayPic = document.querySelector(".overlay__img")
+    const overlayPicTitle = document.querySelector(".overlay__text")
     const link = e.target.getAttribute("src")
     const name = e.target.getAttribute("alt")
 
-    img.setAttribute("src", link)
-    img.setAttribute("alt", name)
-    txt.textContent = name
-    overlay.classList.add("overlay_visible")
+    overlayPic.setAttribute("src", link)
+    overlayPic.setAttribute("alt", name)
+    overlayPicTitle.textContent = name
+    openModalWindow(overlayImgContiner)
+
 
 }
 
 /// Event Listeners
-
-
-
 profileEdit.addEventListener("click", profileEditHandler);
 profileAddCard.addEventListener("click", cardAddHandler)
 
 frmProfile.addEventListener("submit", frmProfileSubmitHandler);
 
 frmCard.addEventListener("submit", frmCardSubmitHandler);
-
-
-
-
