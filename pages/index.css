@@ -21,6 +21,7 @@
 @import url(../blocks/btn-close/btn-close.css);
 
 /* button sumbit  */
+@import url(../blocks/btn-submit/_inactive/popup__btn-submit_inactive.css);
 @import url(../blocks/btn-submit/btn-submit.css);
 /* button sumbit  */
 @import url(../blocks/btn-delete/btn-delete.css);
@@ -56,11 +57,13 @@
 @import url(../blocks/card/__name/card__name.css);
 @import url(../blocks/card/__delete-card/card__delete-card.css);
 @import url(../blocks/card/__upper/card__upper.css);
-/* popup-form */
-@import url(../blocks/popup-form/popup-form.css);
-@import url(../blocks/popup-form/__btn-submit/popup-form__btn-submit.css);
-@import url(../blocks/popup-form/__lbl-title/popup-form__lbl-title.css);
-@import url(../blocks/popup-form/__txb/popup-form__txb.css);
+/* popup */
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__btn-submit/popup__btn-submit.css);
+@import url(../blocks/popup/__lbl-title/popup__lbl-title.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__error/_visible/popup__error_visible.css);
+@import url(../blocks/popup/__input/_type/popup__input_type_error.css);
 /* overlay */
 @import url(../blocks/overlay/overlay.css);
 @import url(../blocks/overlay/_visible/overlay_visible.css);

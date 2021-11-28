@@ -1,4 +1,6 @@
 /// Variables
+import enableValidation from './sam.js';
+
 const overlayClose = document.querySelectorAll(".overlay__btn-close")
 
 const profileName = document.querySelector(".profile__name")
@@ -18,6 +20,14 @@ const frmCardClose = document.querySelector('#frmCard *.btn-close')
 
 const cardTemplate = document.querySelector("#card").content;
 const cardsList = document.querySelector(".cards")
+const validationProp = {
+    formSelector: ".popup",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__btn-submit",
+    inactiveButtonClass: "popup__btn-submit_inactive",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible"
+};
 
 init();
 function init() {
@@ -51,6 +61,8 @@ function init() {
     initialCards.forEach(elm => insertCard(elm));
 
     overlayClose.forEach(elm => elm.addEventListener("click", closeModalWindow))
+    enableValidation(validationProp);
+
 }
 
 function openModalWindow(modalWindow) {
@@ -60,6 +72,7 @@ function openModalWindow(modalWindow) {
 
 function closeModalWindow(e) {
     e.target.closest(".overlay").classList.remove("overlay_visible");
+
 }
 
 //Profile
@@ -138,3 +151,6 @@ profileAddCard.addEventListener("click", cardAddHandler)
 frmProfile.addEventListener("submit", frmProfileSubmitHandler);
 
 frmCard.addEventListener("submit", frmCardSubmitHandler);
+
+
+
