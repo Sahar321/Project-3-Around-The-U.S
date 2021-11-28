@@ -1,4 +1,4 @@
-# Project 4: Around The U.S. (sprint 5)
+# Project 4: Around The U.S. (sprint 6)
 
 **description**
 
@@ -11,6 +11,7 @@ A journey in the United States
 - BEM methodology
 - Custom font
 - js
+- validation using js
 
   **live demo**
 
