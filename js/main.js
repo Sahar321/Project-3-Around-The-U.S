@@ -1,38 +1,47 @@
-/// Variables
-import enableValidation from './sam.js';
+/// imports
+import enableValidation from './validate.js';
 
-const overlayClose = document.querySelectorAll(".overlay__btn-close")
+/// Variables
+const overlayList = document.querySelectorAll(".overlay")
+const overlayListBtnClose = document.querySelectorAll(".overlay__btn-close")
 
 const profileName = document.querySelector(".profile__name")
 const profileTitle = document.querySelector(".profile__title")
 const profileEdit = document.querySelector('.profile__edit-info')
 const profileAddCard = document.querySelector('.profile__add')
 
-const frmProfile = document.querySelector('#frmProfile')
-const frmProfileName = document.querySelector("[name='profileName']")
-const frmProfileTitle = document.querySelector("[name='profileTitle']")
-const frmProfileClose = document.querySelector('#frmProfile *.btn-close')
+const formProfile = document.querySelector('#formProfile')
+const formProfileName = document.querySelector("[name='profileName']")
+const formProfileTitle = document.querySelector("[name='profileTitle']")
+    //const formProfileClose = document.querySelector('#formProfile *.btn-close')
 
-const frmCard = document.querySelector('#frmCard')
-const frmCardUrl = document.querySelector("[name='CardURL']")
-const frmCardTitle = document.querySelector("[name='CardTitle']")
-const frmCardClose = document.querySelector('#frmCard *.btn-close')
+const formCard = document.querySelector('#formCard')
+const formCardUrl = document.querySelector("[name='CardURL']")
+const formCardTitle = document.querySelector("[name='CardTitle']")
+    //const formCardClose = document.querySelector('#formCard *.btn-close')
+const formValidateProp = {
 
-const cardTemplate = document.querySelector("#card").content;
-const cardsList = document.querySelector(".cards")
-const validationProp = {
     formSelector: ".popup",
     inputSelector: ".popup__input",
     submitButtonSelector: ".popup__btn-submit",
     inactiveButtonClass: "popup__btn-submit_inactive",
     inputErrorClass: "popup__input_type_error",
     errorClass: "popup__error_visible"
+
+
+
 };
 
+const cardTemplate = document.querySelector("#card").content;
+const cardsList = document.querySelector(".cards")
+
+
+
 init();
+
 function init() {
-    const initialCards = [
-        {
+
+    const initialCards = [{
             name: "Yosemite Valley",
             link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
 
@@ -60,34 +69,67 @@ function init() {
     ];
     initialCards.forEach(elm => insertCard(elm));
 
-    overlayClose.forEach(elm => elm.addEventListener("click", closeModalWindow))
-    enableValidation(validationProp);
+    overlayList.forEach(elm => elm.addEventListener("click", overlayClickHandler))
+    overlayListBtnClose.forEach(elm => elm.addEventListener("click", closePopup))
+
+    // validation
+    enableValidation(formValidateProp);
 
 }
 
-function openModalWindow(modalWindow) {
-
-    modalWindow.classList.add("overlay_visible");
+function openPopup(popup) {
+    popup.classList.add("overlay_visible")
 }
 
-function closeModalWindow(e) {
-    e.target.closest(".overlay").classList.remove("overlay_visible");
+function closePopup(evt) {
+    let overlayVisible = document.querySelector(".overlay_visible")
+    overlayVisible.classList.remove("overlay_visible")
+}
+
+
+
+
+//////////Handlers///////////////
+// document
+function KeyUpHandler(evt) {
+    const overlayVisible = document.querySelector(".overlay_visible")
+
+    switch (evt.keyCode) {
+        case 27: //Esc
+            if (overlayVisible !== null) {
+                closePopup(evt)
+            }
+
+            break;
+    }
 
 }
+
+
+
+// Overlay
+function overlayClickHandler(evt) {
+    const elm = evt.target
+        //Make sure the parent("overlay") element is clicked
+    if (elm.classList.contains("overlay_visible")) {
+        closePopup(evt)
+    }
+}
+
 
 //Profile
 function profileEditHandler() {
-    frmProfileName.value = profileName.textContent
-    frmProfileTitle.value = profileTitle.textContent
-    openModalWindow(frmProfile);
+    formProfileName.value = profileName.textContent
+    formProfileTitle.value = profileTitle.textContent
+    openPopup(formProfile);
 }
 
 
-function frmProfileSubmitHandler(e) {
-    e.preventDefault();
-    profileName.textContent = frmProfileName.value
-    profileTitle.textContent = frmProfileTitle.value
-    closeModalWindow(e)
+function formProfileSubmitHandler(evt) {
+    evt.preventDefault();
+    profileName.textContent = formProfileName.value
+    profileTitle.textContent = formProfileTitle.value
+    closePopup()
 }
 
 // Card
@@ -109,48 +151,52 @@ function insertCard(dataObj) {
     cardsList.prepend(card);
 }
 
-function cardLikeHandler(e) {
-    e.target.classList.toggle("btn-like_state_active")
+function cardLikeHandler(evt) {
+    evt.target.classList.toggle("btn-like_state_active")
 }
-function cardDeleteHandler(e) {
-    e.target.closest(".card").remove();
+
+function cardDeleteHandler(evt) {
+    evt.target.closest(".card").remove();
 }
 
 function cardAddHandler() {
-    document.forms["frmCard"].reset();
+    document.forms["formCard"].reset();
 
-    openModalWindow(frmCard);
+    openPopup(formCard);
 
 }
 
-function frmCardSubmitHandler(e) {
-    e.preventDefault();
-    const cardData = { name: frmCardTitle.value, link: frmCardUrl.value };
+function formCardSubmitHandler(evt) {
+    evt.preventDefault();
+    const cardData = { name: formCardTitle.value, link: formCardUrl.value };
     insertCard(cardData)
-    closeModalWindow(e)
+    closePopup(evt)
 }
-function cardImgHandler(e) {
+
+function cardImgHandler(evt) {
     const overlayImgContiner = document.querySelector("#overlayImage")
     const overlayPic = document.querySelector(".overlay__img")
     const overlayPicTitle = document.querySelector(".overlay__text")
-    const link = e.target.getAttribute("src")
-    const name = e.target.getAttribute("alt")
+    const link = evt.target.getAttribute("src")
+    const name = evt.target.getAttribute("alt")
 
     overlayPic.setAttribute("src", link)
     overlayPic.setAttribute("alt", name)
     overlayPicTitle.textContent = name
-    openModalWindow(overlayImgContiner)
+    openPopup(overlayImgContiner)
 
 
 }
+
+
 
 /// Event Listeners
 profileEdit.addEventListener("click", profileEditHandler);
 profileAddCard.addEventListener("click", cardAddHandler)
 
-frmProfile.addEventListener("submit", frmProfileSubmitHandler);
 
-frmCard.addEventListener("submit", frmCardSubmitHandler);
+formProfile.addEventListener("submit", formProfileSubmitHandler);
 
+formCard.addEventListener("submit", formCardSubmitHandler);
 
-
+document.addEventListener("keyup", KeyUpHandler);
