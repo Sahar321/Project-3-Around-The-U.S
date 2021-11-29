@@ -1,9 +1,10 @@
 /// imports
-import enableValidation from './validate.js';
+import { enableValidation } from './validate.js';
+import { initialCards } from './initialData.js';
 
 /// Variables
 const overlayList = document.querySelectorAll(".overlay")
-const overlayListBtnClose = document.querySelectorAll(".overlay__btn-close")
+const overlayListButtonClose = document.querySelectorAll(".overlay__btn-close")
 
 const profileName = document.querySelector(".profile__name")
 const profileTitle = document.querySelector(".profile__title")
@@ -13,13 +14,11 @@ const profileAddCard = document.querySelector('.profile__add')
 const formProfile = document.querySelector('#formProfile')
 const formProfileName = document.querySelector("[name='profileName']")
 const formProfileTitle = document.querySelector("[name='profileTitle']")
-    //const formProfileClose = document.querySelector('#formProfile *.btn-close')
 
 const formCard = document.querySelector('#formCard')
 const formCardUrl = document.querySelector("[name='CardURL']")
 const formCardTitle = document.querySelector("[name='CardTitle']")
-    //const formCardClose = document.querySelector('#formCard *.btn-close')
-const formValidateProp = {
+const formConfig = {
 
     formSelector: ".popup",
     inputSelector: ".popup__input",
@@ -35,55 +34,36 @@ const formValidateProp = {
 const cardTemplate = document.querySelector("#card").content;
 const cardsList = document.querySelector(".cards")
 
+const keys = { Escape: 27 }
 
 
 init();
 
 function init() {
 
-    const initialCards = [{
-            name: "Yosemite Valley",
-            link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
 
-        },
-        {
-            name: "Lake Louise",
-            link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-        },
-        {
-            name: "Bald Mountains",
-            link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-        },
-        {
-            name: "Latemar",
-            link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-        },
-        {
-            name: "Vanoise National Park",
-            link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-        },
-        {
-            name: "Lago di Braies",
-            link: "https://code.s3.yandex.net/web-code/lago.jpg"
-        }
-    ];
-    initialCards.forEach(elm => insertCard(elm));
+    initialCards.forEach(renderCard);
 
     overlayList.forEach(elm => elm.addEventListener("click", overlayClickHandler))
-    overlayListBtnClose.forEach(elm => elm.addEventListener("click", closePopup))
+    overlayListButtonClose.forEach(elm => elm.addEventListener("click", closePopup))
 
     // validation
-    enableValidation(formValidateProp);
+    enableValidation(formConfig);
 
 }
 
 function openPopup(popup) {
     popup.classList.add("overlay_visible")
+    document.addEventListener("keyup", handleKeyUp);
 }
 
-function closePopup(evt) {
-    let overlayVisible = document.querySelector(".overlay_visible")
-    overlayVisible.classList.remove("overlay_visible")
+function closePopup() {
+    const overlayVisible = document.querySelector(".overlay_visible")
+    if (overlayVisible !== null) {
+        overlayVisible.classList.remove("overlay_visible")
+        document.removeEventListener("keyup", handleKeyUp);
+    }
+
 }
 
 
@@ -91,15 +71,13 @@ function closePopup(evt) {
 
 //////////Handlers///////////////
 // document
-function KeyUpHandler(evt) {
+function handleKeyUp(evt) {
+
     const overlayVisible = document.querySelector(".overlay_visible")
 
     switch (evt.keyCode) {
-        case 27: //Esc
-            if (overlayVisible !== null) {
-                closePopup(evt)
-            }
-
+        case keys.Escape:
+            closePopup()
             break;
     }
 
@@ -112,7 +90,7 @@ function overlayClickHandler(evt) {
     const elm = evt.target
         //Make sure the parent("overlay") element is clicked
     if (elm.classList.contains("overlay_visible")) {
-        closePopup(evt)
+        closePopup()
     }
 }
 
@@ -133,47 +111,51 @@ function formProfileSubmitHandler(evt) {
 }
 
 // Card
-function insertCard(dataObj) {
+function renderCard(cardData) {
+    const createdCard = createCard(cardData)
+    cardsList.prepend(createdCard);
+}
 
+function createCard(cardData) {
     const card = cardTemplate.querySelector(".card").cloneNode(true);
     const cardName = card.querySelector(".card__name")
     const cardImg = card.querySelector(".card__img")
     const cardLike = card.querySelector(".card__like")
     const cardDelete = card.querySelector(".card__delete-card")
-
-    cardName.textContent = dataObj.name
-    cardImg.setAttribute("src", dataObj.link)
-    cardImg.setAttribute("alt", dataObj.name)
-
-    cardLike.addEventListener("click", cardLikeHandler)
-    cardDelete.addEventListener("click", cardDeleteHandler)
-    cardImg.addEventListener("click", cardImgHandler)
-    cardsList.prepend(card);
+    cardName.textContent = cardData.name
+    cardImg.setAttribute("src", cardData.link)
+    cardImg.setAttribute("alt", cardData.name)
+    cardLike.addEventListener("click", handleLikeCard)
+    cardDelete.addEventListener("click", handleDeleteCard)
+    cardImg.addEventListener("click", openCardPreview)
+    return card
 }
 
-function cardLikeHandler(evt) {
+
+
+function handleLikeCard(evt) {
     evt.target.classList.toggle("btn-like_state_active")
 }
 
-function cardDeleteHandler(evt) {
+function handleDeleteCard(evt) {
     evt.target.closest(".card").remove();
 }
 
-function cardAddHandler() {
+function openAddForm() {
     document.forms["formCard"].reset();
 
     openPopup(formCard);
 
 }
 
-function formCardSubmitHandler(evt) {
+function handleAddFormSubmit(evt) {
     evt.preventDefault();
     const cardData = { name: formCardTitle.value, link: formCardUrl.value };
-    insertCard(cardData)
-    closePopup(evt)
+    renderCard(cardData)
+    closePopup()
 }
 
-function cardImgHandler(evt) {
+function openCardPreview(evt) {
     const overlayImgContiner = document.querySelector("#overlayImage")
     const overlayPic = document.querySelector(".overlay__img")
     const overlayPicTitle = document.querySelector(".overlay__text")
@@ -192,11 +174,11 @@ function cardImgHandler(evt) {
 
 /// Event Listeners
 profileEdit.addEventListener("click", profileEditHandler);
-profileAddCard.addEventListener("click", cardAddHandler)
+profileAddCard.addEventListener("click", openAddForm)
 
 
 formProfile.addEventListener("submit", formProfileSubmitHandler);
 
-formCard.addEventListener("submit", formCardSubmitHandler);
+formCard.addEventListener("submit", handleAddFormSubmit);
 
-document.addEventListener("keyup", KeyUpHandler);
+//document.addEventListener("keyup", handleKeyUp);
