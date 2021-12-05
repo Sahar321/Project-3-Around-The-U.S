@@ -41,7 +41,6 @@ init();
 
 function init() {
 
-
     initialCards.forEach(renderCard);
 
     overlayList.forEach(elm => elm.addEventListener("click", overlayClickHandler))
