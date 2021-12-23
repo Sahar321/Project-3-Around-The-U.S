@@ -1,4 +1,4 @@
-# Project 4: Around The U.S. (sprint 6)
+# Project 4: Around The U.S. (sprint 7)
 
 **description**
 
