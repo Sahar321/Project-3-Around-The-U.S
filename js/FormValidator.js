@@ -70,6 +70,5 @@ export default class FormValidator {
             evt.preventDefault();
         });
 
-        //this._toggleButtonState()
     };
 }
