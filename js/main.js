@@ -17,58 +17,61 @@ const profileAddCard = document.querySelector('.profile__add')
 const formProfile = document.querySelector('#formProfile')
 const formProfileName = document.querySelector("[name='profileName']")
 const formProfileTitle = document.querySelector("[name='profileTitle']")
+const formProfileValidator = new FormValidator(formConfigIndex, formProfile)
+
 
 const formCard = document.querySelector('#formCard')
 const formCardUrl = document.querySelector("[name='CardURL']")
 const formCardTitle = document.querySelector("[name='CardTitle']")
+const formCardValidator = new FormValidator(formConfigIndex, formCard)
+
+
+
 
 init();
+
 function init() {
-  initialCards.forEach(renderCard)
+    initialCards.forEach(renderCard)
 
-  const profileFormElement = document.querySelector("#formProfile")
-  const profileFormValidator = new FormValidator(formConfigIndex, profileFormElement)
-  profileFormValidator.enableValidation()
-
-  const cardFormElement = document.querySelector("#formCard")
-  const cardFormValidator = new FormValidator(formConfigIndex, cardFormElement)
-  cardFormValidator.enableValidation()
-
+    formProfileValidator.enableValidation()
+    formCardValidator.enableValidation()
 
 }
 
 //Profile
 function profileEditHandler() {
-  formProfileName.value = profileName.textContent
-  formProfileTitle.value = profileTitle.textContent
-  openPopup(formProfile);
+    formProfileName.value = profileName.textContent
+    formProfileTitle.value = profileTitle.textContent
+    formProfileValidator.resetValidation()
+    openPopup(formProfile);
 }
 
 
 function formProfileSubmitHandler(evt) {
-  evt.preventDefault();
-  profileName.textContent = formProfileName.value
-  profileTitle.textContent = formProfileTitle.value
-  closePopup()
+    evt.preventDefault();
+    profileName.textContent = formProfileName.value
+    profileTitle.textContent = formProfileTitle.value
+    closePopup()
 }
 
 // Card
 function renderCard(cardData) {
-  const card = new Card(cardData, "#card")
-  cardsList.prepend(card.createCard());
+    const card = new Card(cardData, "#card")
+    cardsList.prepend(card.createCard());
 }
 
 function openAddForm() {
-  document.forms["formCard"].reset();
-  openPopup(formCard);
+    document.forms["formCard"].reset();
+    formCardValidator.resetValidation()
+    openPopup(formCard);
 }
 
 function handleAddFormSubmit(evt) {
-  evt.preventDefault();
+    evt.preventDefault();
 
-  const cardData = { name: formCardTitle.value, link: formCardUrl.value };
-  renderCard(cardData)
-  closePopup()
+    const cardData = { name: formCardTitle.value, link: formCardUrl.value };
+    renderCard(cardData)
+    closePopup()
 }
 /// Event Listeners
 profileEdit.addEventListener("click", profileEditHandler);
