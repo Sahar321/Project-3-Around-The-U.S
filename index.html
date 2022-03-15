@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!--     <link rel="stylesheet" href="./pages/index.css" />
+ -->
     <title>Around the U.S.</title>
 
 </head>
@@ -14,12 +15,13 @@
 
 
     <header class="header">
-        <img src="img/logo/logo.svg" class="logo" alt="logo of Around the U.S." />
+        <img id="headerLogo" class="logo" alt="logo of Around the U.S." />
     </header>
 
     <main>
         <section class="profile">
-            <img src="img/avatars/avater-icon.png" alt="Profile Avater" class="profile__avatar" />
+            <img id="ProfileAvater" alt="Profile Avater" class="profile__avatar" />
+
             <div class="profile__info">
                 <div class="flex-wrapper">
                     <h1 class="profile__name">Jacques Cousteau</h1>
@@ -41,11 +43,11 @@
         </div>
         <div id="formProfile" class="overlay">
             <button class="btn-close overlay__btn-close" aria-label="Close" type="button"></button>
-            <form name="formProfile"  class="popup" novalidate>
+            <form name="formProfile" class="popup form" novalidate>
                 <h2 class="popup__lbl-title">Edit profile</h2>
-                <input class="textbox popup__input" type="text" minlength="2" maxlength="40" required id="profileName" name="profileName" value="Jacques Cousteau" />
+                <input class="textbox popup__input" type="text" minlength="2" maxlength="40" required id="profileName" name="profileName" value=" " />
                 <span id="profileName-error"></span>
-                <input class="textbox popup__input" type="text" minlength="2" maxlength="200" required id="profileTitle" name="profileTitle" value="Explorer" />
+                <input class="textbox popup__input" type="text" minlength="2" maxlength="200" required id="profileTitle" name="profileTitle" value="" />
                 <span id="profileTitle-error"></span>
                 <button aria-label="Save" class="btn-submit popup__btn-submit" type="submit">Save</button>
 
@@ -53,7 +55,7 @@
         </div>
         <div id="formCard" class="overlay">
             <button class="btn-close overlay__btn-close" aria-label="Close" type="button"></button>
-            <form name="formCard" class="popup" novalidate>
+            <form name="formCard" class="popup form" novalidate>
                 <h2 class="popup__lbl-title">New place</h2>
                 <input class="textbox popup__input" type="text" required minlength="1" maxlength="30" name="CardTitle" id="CardTitle" placeholder="Title" />
                 <span id="CardTitle-error"></span>
@@ -68,10 +70,6 @@
     <footer class="footer">
         <p class="footer__copyright">© 2021 Around The U.S.</p>
     </footer>
-
-    <div id="dima">
-        fsdfsdfdfgdfg
-    </div>
 
     <!--    Templates   -->
     <template id="card">
@@ -92,7 +90,8 @@
 
     <!--    scripts   -->
 
-    <script type="module" src="./js/main.js"></script>
+    <!--     <script type="module" src="./js/main.js"></script>
+ -->
 </body>
 
 </html>

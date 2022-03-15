@@ -1,3 +1,4 @@
+/*
 const overlayList = document.querySelectorAll(".overlay")
 const closeButtons = document.querySelectorAll(".overlay__btn-close")
 const keys = { Escape: 27 }
@@ -20,17 +21,17 @@ function setEventListeners() {
 
     popups.forEach((popup) => {
         popup.addEventListener('click', (evt) => {
-            if (evt.target.classList.contains('popup_opened')) {
+            const e = evt.target.classList
+            if (e.contains('popup_opened') || e.contains('popup__close')) {
                 closePopup(popup)
             }
-            if (evt.target.classList.contains('popup__close')) {
-                closePopup(popup)
-            }
+
         })
     })
 
 }
-
+*/
+/*
 // Overlay
 function handleClickOverlay(evt) {
     const elm = evt.target
@@ -39,18 +40,19 @@ function handleClickOverlay(evt) {
         closePopup()
     }
 }
+*/
 
-function handleKeyUp(evt) {
+/* function handleKeyUp(evt) {
     switch (evt.keyCode) {
         case keys.Escape:
             closePopup()
             break;
     }
 
-}
-
+}*/
+////////
 //exported function
-export function openPopup(popup) {
+/* export function openPopup(popup) {
 
     popup.classList.add("overlay_visible")
     document.addEventListener("keyup", handleKeyUp);
@@ -62,5 +64,5 @@ export function closePopup() {
         overlayVisible.classList.remove("overlay_visible")
         document.removeEventListener("keyup", handleKeyUp);
     }
-
-}
+    }
+*/

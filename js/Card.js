@@ -1,54 +1,27 @@
-//import { initialCards } from './initialData.js';
-import { openPopup } from './utilits.js';
-
-
 export default class Card {
-
-    _overlayImgContiner
-    _overlayPic
-    _overlayPicTitle
-
-    constructor(cardData, selector) {
-        this._name = cardData.name
-        this._link = cardData.link
+    constructor(cardData, selector, cardClick) {
+        this._handleCardClick = cardClick
+        this._CardTitle = cardData.CardTitle
+        this._CardURL = cardData.CardURL
         this._cardTemplate = document.querySelector(selector).content;
+        this._handleClick = this._handleClick.bind(this)
 
-    }
-
-    createCard() {
-        this._card = this._cardTemplate.querySelector(".card").cloneNode(true);
-        this._cardName = this._card.querySelector(".card__name")
-        this._cardImg = this._card.querySelector(".card__img")
-        this._cardLike = this._card.querySelector(".card__like")
-        this._cardDelete = this._card.querySelector(".card__delete-card")
-        this._cardName.textContent = this._name
-        this._cardImg.setAttribute("src", this._link)
-        this._cardImg.setAttribute("alt", this._name)
-
-
-        this._setEventListeners()
-        return this._card
     }
 
     _setEventListeners() {
         this._cardLike.addEventListener("click", this._handleLikeCard)
         this._cardDelete.addEventListener("click", this._handleDeleteCard)
-        this._cardImg.addEventListener("click", this._openCardPreview)
+        this._cardImg.addEventListener("click", this._handleClick)
     }
 
-    _openCardPreview(evt) {
-        this._overlayImgContiner = document.querySelector("#overlayImage")
-        this._overlayPic = document.querySelector(".overlay__img")
-        this._overlayPicTitle = document.querySelector(".overlay__text")
 
-        this._src = evt.target.getAttribute("src")
-        this._alt = evt.target.getAttribute("alt")
-        this._overlayPic.setAttribute("src", this._src)
-        this._overlayPic.setAttribute("alt", this._alt)
-        this._overlayPicTitle.textContent = this._alt
-        openPopup(this._overlayImgContiner)
+    _handleClick(e) {
+        const data = {
+            CardURL: e.target.getAttribute("src"),
+            CardTitle: e.target.getAttribute("alt"),
+        }
 
-
+        this._handleCardClick(data)
     }
 
     _handleLikeCard(evt) {
@@ -57,6 +30,20 @@ export default class Card {
 
     _handleDeleteCard(evt) {
         evt.target.closest(".card").remove();
+    }
+
+
+    createCard() {
+        this._card = this._cardTemplate.querySelector(".card").cloneNode(true);
+        this._cardName = this._card.querySelector(".card__name")
+        this._cardImg = this._card.querySelector(".card__img")
+        this._cardLike = this._card.querySelector(".card__like")
+        this._cardDelete = this._card.querySelector(".card__delete-card")
+        this._cardName.textContent = this._CardTitle
+        this._cardImg.setAttribute("src", this._CardURL)
+        this._cardImg.setAttribute("alt", this._CardTitle)
+        this._setEventListeners()
+        return this._card
     }
 
 }
