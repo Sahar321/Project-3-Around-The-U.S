@@ -34,6 +34,7 @@ export default class Popup {
     }
 
     setEventListeners() {
+        console.log("gsd")
         this._popup.addEventListener("mousedown", this._handleClose)
         document.addEventListener("keydown", this._handleEscClose)
     }
