@@ -7,11 +7,11 @@ export default class PopupWithImage extends Popup {
         this._popupImage = this._popup.querySelector(".overlay__img")
 
     }
-    open({ cardTitle, cardURL }) {
+    open({ name, link }) {
         const title = this._popup.querySelector(".overlay__text")
-        this._popupImage.src = cardURL
-        this._popupImage.alt = cardTitle
-        title.textContent = cardTitle
+        this._popupImage.src = link
+        this._popupImage.alt = name
+        title.textContent = name
         this.setEventListeners();
         super.open()
     }

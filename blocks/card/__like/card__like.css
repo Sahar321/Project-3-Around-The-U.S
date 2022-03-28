@@ -1,6 +1,6 @@
 .card__like {
-  margin: 0;
-  padding: 0;
-  height: 19px;
-  width: 21px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
 }

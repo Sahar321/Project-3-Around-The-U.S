@@ -1,0 +1,4 @@
+.profile__avatarContiner {
+    grid-area: "avatarArea";
+    display: grid;
+}

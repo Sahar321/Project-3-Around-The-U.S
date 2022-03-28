@@ -36,7 +36,7 @@ export default class FormValidator {
         }
     };
     _checkInputValidity(inputElement) {
-        inputElement.addEventListener("input", function () {
+        inputElement.addEventListener("input", function() {
             this._toggleButtonState();
             if (!inputElement.validity.valid) {
                 this._showInputError(inputElement, inputElement.validationMessage);
@@ -66,7 +66,7 @@ export default class FormValidator {
 
     enableValidation() {
         this._setEventListeners();
-        this._formElement.addEventListener("submit", function (evt) {
+        this._formElement.addEventListener("submit", function(evt) {
             evt.preventDefault();
         });
     };
