@@ -1,0 +1,5 @@
+.overlay_visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
